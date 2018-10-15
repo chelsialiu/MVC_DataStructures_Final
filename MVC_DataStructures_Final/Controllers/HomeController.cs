@@ -13,5 +13,10 @@ namespace MVC_DataStructures_Final.Controllers
         {
             return View();
         }
+
+        public ActionResult Exit()
+        {
+            return Redirect("https://byu.edu");
+        }
     }
 }
