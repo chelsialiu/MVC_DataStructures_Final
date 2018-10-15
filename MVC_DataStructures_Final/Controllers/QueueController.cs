@@ -33,6 +33,8 @@ namespace MVC_DataStructures_Final.Controllers
 
         public ActionResult AddHuge()
         {
+            myQueue.Clear();
+
             for (int iCount = 0; iCount < 2000; iCount++)
             {
                 myQueue.Enqueue("New Entry " + (myQueue.Count + 1));
