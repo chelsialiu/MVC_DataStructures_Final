@@ -9,6 +9,7 @@ namespace MVC_DataStructures_Final.Controllers
         public class StackController : Controller
         {
             static Stack<string> myStack = new Stack<string>();
+
             // GET: Stack
             public ActionResult Index()
             {
@@ -23,12 +24,12 @@ namespace MVC_DataStructures_Final.Controllers
                 return View("Index");
             }
 
-            //This method adds a huge list of 2,000 entries to the stack
-            public ActionResult AddHuge()
+             //This method first clears the data structure and then adds a huge list of 2,000 entries to the dictionary 
+             public ActionResult AddHuge()
             {
                 myStack.Clear();
                 ViewBag.MyStack = myStack;
-                ViewBag.MyStack.Clear();
+
                 for (int i = 0; i <= 1999; i++)
                 {
                     myStack.Push("New Entry " + (i + 1));
@@ -36,7 +37,7 @@ namespace MVC_DataStructures_Final.Controllers
                 return View("Index");
             }
             
-            //this method will display the stack
+            //this method will display the stack using a foreach loop
             public ActionResult Display()
             {
                 ViewBag.MyStack = myStack;
@@ -79,8 +80,9 @@ namespace MVC_DataStructures_Final.Controllers
                 if (bResult == true)
                 {
                     Stopwatch.Stop();
-                    ViewBag.Search = "The stack contains 'New Entry 7'";
                     timespan = Stopwatch.Elapsed;
+                    ViewBag.Search = "The stack contains 'New Entry 7'";
+
                 }
                 else
                 {

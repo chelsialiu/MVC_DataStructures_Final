@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_DataStructures_Final", "MVC_DataStructures_Final\MVC_DataStructures_Final.csproj", "{781D772B-0F44-4A8E-8613-26DBDC6FEB39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_Structures", "..\Data_Structures\Data_Structures\Data_Structures.csproj", "{226F9B53-262A-4FEB-84D7-8A203B6BA85E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +17,15 @@ Global
 		{781D772B-0F44-4A8E-8613-26DBDC6FEB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{781D772B-0F44-4A8E-8613-26DBDC6FEB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{781D772B-0F44-4A8E-8613-26DBDC6FEB39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{226F9B53-262A-4FEB-84D7-8A203B6BA85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226F9B53-262A-4FEB-84D7-8A203B6BA85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226F9B53-262A-4FEB-84D7-8A203B6BA85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226F9B53-262A-4FEB-84D7-8A203B6BA85E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {00EA000B-2A77-4A72-8567-8F2118CEED44}
+		SolutionGuid = {4F628E72-083E-4D83-A89E-782198F663C9}
 	EndGlobalSection
 EndGlobal
