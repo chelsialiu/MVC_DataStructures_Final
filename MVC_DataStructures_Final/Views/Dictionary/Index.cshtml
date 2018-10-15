@@ -31,7 +31,7 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h2>My Stack</h2>
+            <h2>My Dictionary</h2>
             <p>
                 Manipulate my dictionary below by pushing the buttons.
                 The dictionary will then be displayed below
@@ -59,18 +59,17 @@
             }
             else
             {
-                @foreach (var dictionaryData in ViewBag.MyDictionary)
+                foreach (var dictionaryData in ViewBag.MyDictionary)
                 {
                     <p>@dictionaryData</p>
                 }
             }
         </div>
-
-        <div class="col-md-6">
-            <p>@ViewBag.Clear</p>
-            <p>@ViewBag.Search</p>
-            <p>@ViewBag.Time</p>
+            <div class="col-md-6">
+                <p>@ViewBag.Clear</p>
+                <p>@ViewBag.Search</p>
+                <p>@ViewBag.Time</p>
+            </div>
         </div>
-    </div>
 </body>
 </html>
