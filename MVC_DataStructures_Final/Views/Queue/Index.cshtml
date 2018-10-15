@@ -8,10 +8,62 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Queue Index</title>
+    <title>Queue</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <div> 
+    <div>
+        <div class="w3-bar w3-black">
+            <a href="@Url.Action("Index", "Stack")" class="w3-bar-item w3-button">Stack</a>
+            <a href="@Url.Action("Index", "Queue")" class="w3-bar-item w3-button">Queue</a>
+            <a href="@Url.Action("Index", "Dictionary")" class="w3-bar-item w3-button">Dictionary</a>
+            <a href="@Url.Action("Exit", "Home")" class="w3-bar-item w3-button">Exit</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <h2>My Queue</h2>
+            <p>
+                Manipulate our queue below by pushing the buttons.
+                The queue will then be displayed below
+            </p>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+
+            <a href="@Url.Action("AddOne", "Queue")" class="w3-bar-item w3-button">Add One</a>
+            <a href="@Url.Action("AddHuge", "Queue")" class="w3-bar-item w3-button">Add Huge List</a>
+            <a href="@Url.Action("Display", "Queue")" class="w3-bar-item w3-button">Display Queue</a>
+            <a href="@Url.Action("Delete", "Queue")" class="w3-bar-item w3-button">Delete from Queue</a>
+            <a href="@Url.Action("Clear", "Queue")" class="w3-bar-item w3-button">Clear Queue</a>
+            <a href="@Url.Action("Search", "Queue")" class="w3-bar-item w3-button">Search Queue</a>
+            <a href="@Url.Action("ReturnHome", "Queue")" class="w3-bar-item w3-button">Return to Main Menu</a>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="container">
+        <div class="col col-md-6">
+            @if (ViewBag.MyQueue == null)
+            {
+
+            }
+            else
+            {
+                foreach (var qData in ViewBag.MyQueue)
+                {
+                    <p>@qData</p>
+                }
+            }
+        </div>
+
+        <div class="col-md-6">
+            <p>@ViewBag.Clear</p>
+            <p>@ViewBag.Search</p>
+            <p>@ViewBag.Time</p>
+        </div>
     </div>
 </body>
 </html>
