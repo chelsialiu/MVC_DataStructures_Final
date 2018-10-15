@@ -30,6 +30,8 @@
         </div>
     </nav>
 
+    <div class="overlay"></div>
+
     <div class="container">
         <div class="jumbotron">
             <h2>My Stack</h2>
@@ -38,40 +40,37 @@
                 The stack will then be displayed below
             </p>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-6">
-
-            <a href="@Url.Action("AddOne", "Stack")" class="w3-bar-item w3-button">Add One</a>
-            <a href="@Url.Action("AddHuge", "Stack")" class="w3-bar-item w3-button">Add Huge List</a>
-            <a href="@Url.Action("Display", "Stack")" class="w3-bar-item w3-button">Display Stack</a>
-            <a href="@Url.Action("Delete", "Stack")" class="w3-bar-item w3-button">Delete from Stack</a>
-            <a href="@Url.Action("Clear", "Stack")" class="w3-bar-item w3-button">Clear Stack</a>
-            <a href="@Url.Action("Search", "Stack")" class="w3-bar-item w3-button">Search Stack</a>
-            <a href="@Url.Action("ReturnHome", "Stack")" class="w3-bar-item w3-button">Return to Main Menu</a>
-
+        <div class="container">
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="@Url.Action("AddOne", "Stack")" class="w3-bar-item w3-button">Add One</a></li>
+                    <li><a href="@Url.Action("AddHuge", "Stack")" class="w3-bar-item w3-button">Add Huge List</a></li>
+                    <li><a href="@Url.Action("Display", "Stack")" class="w3-bar-item w3-button">Display Stack</a></li>
+                    <li><a href="@Url.Action("Delete", "Stack")" class="w3-bar-item w3-button">Delete from Stack</a></li>
+                    <li><a href="@Url.Action("Clear", "Stack")" class="w3-bar-item w3-button">Clear Stack</a></li>
+                    <li><a href="@Url.Action("Search", "Stack")" class="w3-bar-item w3-button">Search Stack</a></li>
+                    <li><a href="@Url.Action("ReturnHome", "Stack")" class="w3-bar-item w3-button">Return to Main Menu</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="container">
-        <div class="col col-md-6">
+        <div class="col col-md-8">
             @if (ViewBag.Mystack == null)
-            {
+        {
 
-            }
-            else
+        }
+        else
+        {
+            foreach (var sData in ViewBag.MyStack)
             {
-                foreach (var sData in ViewBag.MyStack)
-                {
-                    <p>@sData</p>
-                }
-            }
-        </div>
-
-        <div class="col-md-6">
+                <p>@sData</p>
+        }
+    }
             <p>@ViewBag.Clear</p>
             <p>@ViewBag.Search</p>
             <p>@ViewBag.Time</p>
         </div>
+
+            
     </div>
 </body>
 </html>
