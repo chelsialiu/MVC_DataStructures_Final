@@ -16,12 +16,14 @@ namespace MVC_DataStructures_Final.Controllers
                 return View();
             }
 
+            //This method adds one entry to the stack
             public ActionResult AddOne()
             {
                 myStack.Push("New Entry " + (myStack.Count + 1));
                 return View("Index");
             }
 
+            //This method adds a huge list of 2,000 entries to the stack
             public ActionResult AddHuge()
             {
                 myStack.Clear();
@@ -33,13 +35,15 @@ namespace MVC_DataStructures_Final.Controllers
                 }
                 return View("Index");
             }
-
+            
+            //this method will display the stack
             public ActionResult Display()
             {
                 ViewBag.MyStack = myStack;
                 return View("Index");
             }
 
+            //This method will delete the last entry of the stack
             public ActionResult Delete()
             {
                 if (myStack.Count == 0)
@@ -53,6 +57,7 @@ namespace MVC_DataStructures_Final.Controllers
                 return View("Index");
             }
 
+            //This method will clear the entire stack
             public ActionResult Clear()
             {
                 ViewBag.MyStack = myStack;
@@ -62,7 +67,9 @@ namespace MVC_DataStructures_Final.Controllers
                 return View("Index");
             }
 
-            public ActionResult Search()
+        //this method will search for the "new entry 7" in the stack and wil ldisplay the time it
+        //took to find that entry. If it is not there it will display "The stack does not contain 'New Entry 7'"
+        public ActionResult Search()
             {
                 System.Diagnostics.Stopwatch Stopwatch = new System.Diagnostics.Stopwatch();
                 Stopwatch.Start();
@@ -84,7 +91,7 @@ namespace MVC_DataStructures_Final.Controllers
                 ViewBag.Time = "Time: " + timespan;
                 return View("Index");
             }
-
+                //This method returns to the home page
             public ActionResult ReturnHome()
             {
                 return RedirectToAction("Index", "Home");
