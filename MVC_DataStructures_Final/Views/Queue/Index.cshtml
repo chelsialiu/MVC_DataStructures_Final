@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Stack</title>
+    <title>Queue</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/Site.css" />
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
@@ -39,15 +39,29 @@
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-6">
-
-            <a href="@Url.Action("AddOne", "Queue")" class="w3-bar-item w3-button">Add One</a>
-            <a href="@Url.Action("AddHuge", "Queue")" class="w3-bar-item w3-button">Add Huge List</a>
-            <a href="@Url.Action("Display", "Queue")" class="w3-bar-item w3-button">Display Queue</a>
-            <a href="@Url.Action("Delete", "Queue")" class="w3-bar-item w3-button">Delete from Queue</a>
-            <a href="@Url.Action("Clear", "Queue")" class="w3-bar-item w3-button">Clear Queue</a>
-            <a href="@Url.Action("Search", "Queue")" class="w3-bar-item w3-button">Search Queue</a>
-            <a href="@Url.Action("ReturnHome", "Queue")" class="w3-bar-item w3-button">Return to Main Menu</a>
-
+            <ul>
+                <li>
+                    <a href="@Url.Action("AddOne", "Queue")" class="w3-bar-item w3-button">Add One</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AddHuge", "Queue")" class="w3-bar-item w3-button">Add Huge List</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Display", "Queue")" class="w3-bar-item w3-button">Display Queue</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Delete", "Queue")" class="w3-bar-item w3-button">Delete from Queue</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Clear", "Queue")" class="w3-bar-item w3-button">Clear Queue</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Search", "Queue")" class="w3-bar-item w3-button">Search Queue</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ReturnHome", "Queue")" class="w3-bar-item w3-button">Return to Main Menu</a>
+                </li>
+            </ul>
         </div>
         <div class="col-md-2"></div>
     </div>
