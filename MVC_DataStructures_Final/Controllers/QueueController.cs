@@ -59,8 +59,16 @@ namespace MVC_DataStructures_Final.Controllers
 
         public ActionResult Delete()
         {
-            myQueue.Dequeue();
-            return View("Index");
+            if (myQueue.Count > 0)
+            {
+                myQueue.Dequeue();
+                return View("Index");
+            }
+            else
+            {
+                ViewBag.Clear = "Nothing to delete";
+                return View("Index");
+            }
         }
 
         //Clear Method clears the entire queue
