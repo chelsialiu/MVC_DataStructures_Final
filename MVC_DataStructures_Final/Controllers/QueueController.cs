@@ -78,36 +78,32 @@ namespace MVC_DataStructures_Final.Controllers
 
         //Search Method allows you to search the queue for a specific entry and reports the time it took to find the entry
 
-               public ActionResult Search()
-               {
+        public ActionResult Search()
+        {
             System.Diagnostics.Stopwatch Stopwatch = new System.Diagnostics.Stopwatch();
             Stopwatch.Start();
             TimeSpan timespan = Stopwatch.Elapsed;
 
-                   if(myQueue.Contains("New Entry 3"))
-                   {
-                        Stopwatch.Stop();
-                         timespan = Stopwatch.Elapsed;
-                         ViewBag.Search = "The Queue contains New Entry 3";
-                        
-                   }
+            if (myQueue.Contains("New Entry 3"))
+            {
+                Stopwatch.Stop();
+                timespan = Stopwatch.Elapsed;
+                ViewBag.Search = "The Queue contains New Entry 3";
 
-                   else
-                   {
-                         Stopwatch.Stop();
-                          timespan = Stopwatch.Elapsed;
-                         ViewBag.Search = "The Queue does not contain New Entry 3";
-                        
-                        
-                    }
+            }
+
+            else
+            {
+                Stopwatch.Stop();
+                timespan = Stopwatch.Elapsed;
+                ViewBag.Search = "The Queue does not contain New Entry 3";
 
 
-
+            }
 
             ViewBag.Time = "Time: " + timespan;
-                   return View("Index");
-
-               }
+            return View("Index");
+        }
 
 
         //The ReturnHome method takes you back to the home index (Home Page)
@@ -116,9 +112,6 @@ namespace MVC_DataStructures_Final.Controllers
               {
                  return RedirectToAction("Index", "Home");
               }
-
-           
-
 
     }
 }

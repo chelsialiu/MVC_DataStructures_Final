@@ -9,6 +9,7 @@ namespace MVC_DataStructures_Final.Controllers
 {
     public class DictionaryController : Controller
     {
+        //Declare Dictionary variable
         static Dictionary<string, int> myDictionary = new Dictionary<string, int>();
 
         // GET: Dictionary
@@ -28,7 +29,7 @@ namespace MVC_DataStructures_Final.Controllers
         //This method first clears the data structure and then adds a huge list of 2,000 entries to the dictionary 
         public ActionResult AddHuge()
         {
-            ClearDictionary();
+            Clear();
             ViewBag.MyDictionary = myDictionary;
 
 
@@ -52,12 +53,13 @@ namespace MVC_DataStructures_Final.Controllers
         //FIX ME: Delete any item from structure
         public ActionResult Delete()
         {
-
+            return View("Index");
         }
 
         //This method will clear the entire dictionary
-        public ActionResult ClearDictionary()
+        public ActionResult Clear()
         {
+            ViewBag.MyDictionary = myDictionary;
             myDictionary.Clear();
             ViewBag.Clear = "Dictionary has been cleared";
             return View("Index");
@@ -81,14 +83,14 @@ namespace MVC_DataStructures_Final.Controllers
                 {
                     stopwatch.Stop();
                     timespan = stopwatch.Elapsed;
-                    ViewBag.Search = "The dictionary contains 'New Entry 7'";
+                    ViewBag.Search = "The dictionary contains 'New Entry 13'";
                 }
 
                 else
                 {
                     stopwatch.Stop();
                     timespan = stopwatch.Elapsed;
-                    ViewBag.Search = "The dictionary does not contain 'New Entry 7'";
+                    ViewBag.Search = "The dictionary does not contain 'New Entry 13'";
                 }
             }
 
