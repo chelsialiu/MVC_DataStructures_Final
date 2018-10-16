@@ -1,4 +1,6 @@
-﻿using System;
+﻿//This HomeController has an Index method that returns the Home View and an Exit method that redirects to byu.edu.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

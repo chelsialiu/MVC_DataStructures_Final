@@ -1,5 +1,6 @@
-﻿//Created by chelsliu on 10/13/18
-//This stinks
+﻿//This Dictionary controller has all the dictionary  methods that return the corresponding views.
+//Created by Chelsia Liu 10/15/18
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,97 +11,110 @@ namespace MVC_DataStructures_Final.Controllers
 {
     public class DictionaryController : Controller
     {
-        //Declare Dictionary variable
+        //Declare dictionary variable
         static Dictionary<string, int> myDictionary = new Dictionary<string, int>();
 
-        // GET: Dictionary
+        //Index method
         public ActionResult Index()
         {
             ViewBag.MyDictionary = myDictionary;
             return View();
         }
 
-        //This method adds one entry to the dictionary
+        //Add one item to dictionary
         public ActionResult AddOne()
         {
             myDictionary.Add("New Entry " + (myDictionary.Count + 1), (myDictionary.Count + 1));
             return View("Index");
         }
 
-        //This method first clears the data structure and then adds a huge list of 2,000 entries to the dictionary 
+        //Add huge list of items to dictionary
         public ActionResult AddHuge()
         {
-            Clear();
+            //First clear the dictionary
+            myDictionary.Clear();
+
             ViewBag.MyDictionary = myDictionary;
 
-
-            for (int i = 0; i <= 1999; i++)
+            //Generate 2,000 items in the dictionary
+            for (int i = 0; i < 2000; i++)
             {
-                AddOne();
+                myDictionary.Add("New Entry " + (myDictionary.Count + 1), (myDictionary.Count + 1));
             }
+
             return View("Index");
         }
 
-        //This method will display the dictionary using a foreach loop
+        //Display contents of the dictionary
         public ActionResult Display()
         {
-            ViewBag.MyDictionary = myDictionary;
-
-            //Handle any errors and inform the user
-
-            return View("Index");
-        }
-
-        //FIX ME: Delete any item from structure
-        public ActionResult Delete()
-        {
-            return View("Index");
-        }
-
-        //This method will clear the entire dictionary
-        public ActionResult Clear()
-        {
-            ViewBag.MyDictionary = myDictionary;
-            myDictionary.Clear();
-            ViewBag.Clear = "Dictionary has been cleared";
-            return View("Index");
-        }
-
-        //Search for any item in the data structure (hardcoded) and return if it was found
-        //or not found and how long it took to search
-        public ActionResult Search()
-        {
-            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
-
-            stopwatch.Start();
-            TimeSpan timespan = stopwatch.Elapsed;
-
-            foreach (KeyValuePair<string, int> entry in myDictionary)
+            //If there is something in the dictionary, then display the dictionary
+            if (myDictionary.Count > 0)
             {
-                System.Threading.Thread.Sleep(13);
-
-
-                if (myDictionary.ContainsValue(13))
-                {
-                    stopwatch.Stop();
-                    timespan = stopwatch.Elapsed;
-                    ViewBag.Search = "The dictionary contains 'New Entry 13'";
-                }
-
-                else
-                {
-                    stopwatch.Stop();
-                    timespan = stopwatch.Elapsed;
-                    ViewBag.Search = "The dictionary does not contain 'New Entry 13'";
-                }
+                ViewBag.MyDictionary = myDictionary;
+                return View("Index");
             }
 
-            ViewBag.Time = "Time: " + timespan;
-            return View("Index");
-
+            //If not, handle any errors and inform the user
+            else
+            {
+                ViewBag.Display = "Dictionary is empty. Nothing to display";
+                return View("Index");
+            }
         }
 
-        //Return back to the main menu
+        //Delete item from the dictionary
+        public ActionResult Delete()
+        {
+            //Handle any errors and inform the user
+            if (myDictionary.Count == 0)
+            {
+                ViewBag.Delete = "Dictionary is empty. Nothing to delete";
+            }
+
+            else
+            {
+                myDictionary.Remove("New Entry 1");
+            }
+
+            return View("Index");
+        }
+
+        //Wipe out the contents of the dictionary
+        public ActionResult Clear()
+        {
+            //First clear the dictionary
+            myDictionary.Clear();
+            ViewBag.Clear = "The dictionary has been cleared";
+            return View("Index");
+        }
+
+        //Search the queue for a specific entry and report if it was found and how long it took to search
+        public ActionResult Search()
+        {
+            System.Diagnostics.Stopwatch Stopwatch = new System.Diagnostics.Stopwatch();
+            Stopwatch.Start();
+            TimeSpan timespan = Stopwatch.Elapsed;
+
+            if (myDictionary.ContainsValue(7))
+            {
+                Stopwatch.Stop();
+                timespan = Stopwatch.Elapsed;
+                ViewBag.Search = "The dictionary contains 'New Entry 7'";
+            }
+
+            else
+            {
+                Stopwatch.Stop();
+                timespan = Stopwatch.Elapsed;
+                ViewBag.Search = "The dictionary does not contain 'New Entry 7'";
+            }
+
+            ViewBag.Time = "Elasped search time: " + timespan;
+            return View("Index");
+        }
+
+        //Return to the home index (Home Page)
         public ActionResult ReturnHome()
         {
             return RedirectToAction("Index", "Home");

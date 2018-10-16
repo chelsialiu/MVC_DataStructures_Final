@@ -1,4 +1,7 @@
-﻿using System;
+﻿//This Queue controller has all the queue methods that return the corresponding views.
+//Created by Andrew Dale 10/15/18
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,117 +12,112 @@ namespace MVC_DataStructures_Final.Controllers
     public class QueueController : Controller
     {
     
-        //Declare Queue Variable
-
+        //Declare queue variable
         static Queue<string> myQueue = new Queue<string>();
 
-        // Index Method 
+        //Index method
         public ActionResult Index()
         {
             ViewBag.MyQueue = myQueue;
             return View();
         }
 
-        //AddOne Method that allows you to add a new entry to the queue
-
+        //Add one item to queue
         public ActionResult AddOne()
         {
             myQueue.Enqueue("New Entry " + (myQueue.Count + 1));
-        
             return View("Index");
         }
 
-        //AddHuge Method that allows you to add a list of 2000 new entries to the queue
-
+        //Add huge list of items to queue
         public ActionResult AddHuge()
         {
+            //First clear the queue
             myQueue.Clear();
 
-            for (int iCount = 0; iCount < 2000; iCount++)
+            ViewBag.MyQueue = myQueue;
+
+            //Generate 2,000 items in the queue
+            for (int i = 0; i < 2000; i++)
             {
                 myQueue.Enqueue("New Entry " + (myQueue.Count + 1));
             }
 
-           
             return View("Index");
         }
 
-        //Display Method that allows you to display the queue
-
-                public ActionResult Display()
-                {
-                    ViewBag.MyQueue = myQueue;
-
-
-            return View("Index");
-
-                }
-
-         //Delete Method allows you to delete the most recently added entry from the queue
-
-        public ActionResult Delete()
+        //Display contents of the queue
+        public ActionResult Display()
         {
+            //If there is something in the queue, then display the queue
             if (myQueue.Count > 0)
             {
-                myQueue.Dequeue();
+                ViewBag.MyQueue = myQueue;
                 return View("Index");
             }
+
+            //If not, handle any errors and inform the user
             else
             {
-                ViewBag.Clear = "Nothing to delete";
+                ViewBag.Display = "Queue is empty. Nothing to display";
                 return View("Index");
             }
         }
 
-        //Clear Method clears the entire queue
+         //Delete the most recently added entry from the queue
+        public ActionResult Delete()
+        {
+            //Handle any errors and inform the user
+            if (myQueue.Count ==  0)
+            {
+                ViewBag.Delete = "Queue is empty. Nothing to delete";
+            }
 
+            else
+            {
+                myQueue.Dequeue();
+            }
+
+            return View("Index");
+        }
+
+        //Wipe out the contents of the queue
         public ActionResult Clear()
         {
             myQueue.Clear();
-            ViewBag.Clear = "The Queue has been cleared";
+            ViewBag.Clear = "The queue has been cleared";
             return View("Index");
-
-
-            
-
         }
 
-        //Search Method allows you to search the queue for a specific entry and reports the time it took to find the entry
-
+        //Search the queue for a specific entry and report if it was found and how long it took to search
         public ActionResult Search()
         {
             System.Diagnostics.Stopwatch Stopwatch = new System.Diagnostics.Stopwatch();
             Stopwatch.Start();
             TimeSpan timespan = Stopwatch.Elapsed;
 
-            if (myQueue.Contains("New Entry 3"))
+            if (myQueue.Contains("New Entry 7"))
             {
                 Stopwatch.Stop();
                 timespan = Stopwatch.Elapsed;
-                ViewBag.Search = "The Queue contains New Entry 3";
-
+                ViewBag.Search = "The queue contains 'New Entry 7'";
             }
 
             else
             {
                 Stopwatch.Stop();
                 timespan = Stopwatch.Elapsed;
-                ViewBag.Search = "The Queue does not contain New Entry 3";
-
-
+                ViewBag.Search = "The queue does not contain 'New Entry 7'";
             }
 
-            ViewBag.Time = "Time: " + timespan;
+            ViewBag.Time = "Elasped search time: " + timespan;
             return View("Index");
         }
 
-
-        //The ReturnHome method takes you back to the home index (Home Page)
-
-                public ActionResult ReturnHome()
-              {
-                 return RedirectToAction("Index", "Home");
-              }
-
+        //Return to the home index (Home Page)
+        public ActionResult ReturnHome()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

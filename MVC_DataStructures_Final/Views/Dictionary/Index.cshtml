@@ -1,4 +1,7 @@
-﻿@{
+﻿<!-- This is the View for the Dictionary controller
+     Created by Nate Turner 10-15-18 -->
+
+@{
     Layout = null;
 }
 
@@ -7,7 +10,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Stack</title>
+    <title>Dictionary</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/Site.css" />
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
@@ -33,10 +36,9 @@
 
     <div class="container py-3">
         <div class="jumbotron">
-            <h2>My Dictionary</h2>
+            <h2>Our Dictionary</h2>
             <p>
-                Manipulate my dictionary below by pushing the buttons.
-                The dictionary will then be displayed below
+                Manipulate our dictionary below by pushing the buttons.
             </p>
         </div>
         <div class="container">
@@ -44,10 +46,10 @@
                 <div class="col-sm-3 content-div sidebar mr-5">
                     <ul>
                         <li>
-                            <a href="@Url.Action("AddOne", "Dictionary")">Add One</a>
+                            <a href="@Url.Action("AddOne", "Dictionary")">Add one item to Dictionary</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("AddHuge", "Dictionary")">Add Huge List</a>
+                            <a href="@Url.Action("AddHuge", "Dictionary")">Add Huge List of Items to Dictionary</a>
                         </li>
                         <li>
                             <a href="@Url.Action("Display", "Dictionary")">Display Dictionary</a>
@@ -66,6 +68,7 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="col-sm-8 content-div display-div">
                     @if (ViewBag.MyDictionary == null)
                     {
@@ -73,12 +76,14 @@
                     }
                     else
                     {
-                        foreach (var dictionaryData in ViewBag.MyDictionary)
+                        foreach (var dData in ViewBag.MyDictionary)
                         {
-                            <p>@dictionaryData</p>
+                            <p>@dData</p>
                         }
                     }
 
+                    <p>@ViewBag.Display</p>
+                    <p>@ViewBag.Delete</p>
                     <p>@ViewBag.Clear</p>
                     <p>@ViewBag.Search</p>
                     <p>@ViewBag.Time</p>
