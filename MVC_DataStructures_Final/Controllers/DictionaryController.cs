@@ -1,4 +1,5 @@
 ﻿//Created by chelsliu on 10/13/18
+//Team Snek property
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,10 +93,6 @@ namespace MVC_DataStructures_Final.Controllers
                     timespan = stopwatch.Elapsed;
                     ViewBag.Search = "The dictionary does not contain 'New Entry 13'";
                 }
-            }
-
-                
-
             }
 
             ViewBag.Time = "Time: " + timespan;
