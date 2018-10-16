@@ -52,29 +52,14 @@ namespace MVC_DataStructures_Final.Controllers
         //FIX ME: Delete any item from structure
         public ActionResult Delete()
         {
-            ViewBag.MyDictionary = myDictionary;
-
-            string keyToDelete;
-
-            Console.WriteLine("Enter the item you want to delete from the dictionary." +
-                " New Entry: ");
-
-            keyToDelete = Console.ReadLine();
-
-            Console.WriteLine("You want to delete " + keyToDelete);
-
-            //FIX ME: Handle any errors and inform the user somewhere on the form 
-            //if it cannot delete HINT: Use the ViewBag
-            return View();
 
         }
 
         //This method will clear the entire dictionary
         public ActionResult ClearDictionary()
         {
-            ViewBag.MyDictionary = myDictionary;
             myDictionary.Clear();
-            ViewBag.Clear = "Dictionary is empty";
+            ViewBag.Clear = "Dictionary has been cleared";
             return View("Index");
         }
 
@@ -105,6 +90,7 @@ namespace MVC_DataStructures_Final.Controllers
                     timespan = stopwatch.Elapsed;
                     ViewBag.Search = "The dictionary does not contain 'New Entry 7'";
                 }
+            }
 
                 
 
@@ -112,6 +98,7 @@ namespace MVC_DataStructures_Final.Controllers
 
             ViewBag.Time = "Time: " + timespan;
             return View("Index");
+
         }
 
         //Return back to the main menu
