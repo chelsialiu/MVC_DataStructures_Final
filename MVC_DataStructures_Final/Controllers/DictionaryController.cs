@@ -106,10 +106,12 @@ namespace MVC_DataStructures_Final.Controllers
                     ViewBag.Search = "The dictionary does not contain 'New Entry 7'";
                 }
 
-                ViewBag.Time = "Time: " + timespan;
-                return View("Index");
+                
 
             }
+
+            ViewBag.Time = "Time: " + timespan;
+            return View("Index");
         }
 
         //Return back to the main menu
