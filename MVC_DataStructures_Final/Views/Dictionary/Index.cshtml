@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -8,7 +7,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Dictionary</title>
+    <title>Stack</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/Site.css" />
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
@@ -36,49 +35,35 @@
         <div class="jumbotron">
             <h2>My Dictionary</h2>
             <p>
-                Manipulate our Dictionary below by pushing the buttons.
-                The queue will then be displayed below
+                Manipulate my dictionary below by pushing the buttons.
+                The dictionary will then be displayed below
             </p>
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-6">
-            <ul>
-                <li>
-                    <a href="@Url.Action("AddOne", "Dictionary")" class="w3-bar-item w3-button">Add One</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("AddHuge", "Dictionary")" class="w3-bar-item w3-button">Add Huge List</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Display", "Dictionary")" class="w3-bar-item w3-button">Display Dictionary</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Delete", "Dictionary")" class="w3-bar-item w3-button">Delete from Dictionary</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Clear", "Dictionary")" class="w3-bar-item w3-button">Clear Dictionary</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Search", "Dictionary")" class="w3-bar-item w3-button">Search Dictionary</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("ReturnHome", "Dictionary")" class="w3-bar-item w3-button">Return to Main Menu</a>
-                </li>
-            </ul>
+
+            <a href="@Url.Action("AddOne", "Dictionary")" class="w3-bar-item w3-button">Add One</a>
+            <a href="@Url.Action("AddHuge", "Dictionary")" class="w3-bar-item w3-button">Add Huge List</a>
+            <a href="@Url.Action("Display", "Dictionary")" class="w3-bar-item w3-button">Display Dictionary</a>
+            <a href="@Url.Action("Delete", "Dictionary")" class="w3-bar-item w3-button">Delete from Dictionary</a>
+            <a href="@Url.Action("Clear", "Dictionary")" class="w3-bar-item w3-button">Clear Dictionary</a>
+            <a href="@Url.Action("Search", "Dictionary")" class="w3-bar-item w3-button">Search Dictionary</a>
+            <a href="@Url.Action("ReturnHome", "Dictionary")" class="w3-bar-item w3-button">Return to Main Menu</a>
+
         </div>
         <div class="col-md-2"></div>
     </div>
     <div class="container">
         <div class="col col-md-6">
-            @if (ViewBag.MyQueue == null)
+            @if (ViewBag.MyDictionary == null)
             {
 
             }
             else
             {
-                foreach (var dData in ViewBag.MyDictionary)
+                foreach (var dictionaryData in ViewBag.MyDictionary)
                 {
-                    <p>@dData</p>
+                    <p>@dictionaryData</p>
                 }
             }
         </div>
