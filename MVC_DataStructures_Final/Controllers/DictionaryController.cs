@@ -74,7 +74,7 @@ namespace MVC_DataStructures_Final.Controllers
 
             else
             {
-                myDictionary.Remove("New Entry 1");
+                myDictionary.Remove(myDictionary.Keys.Last());
             }
 
             return View("Index");
