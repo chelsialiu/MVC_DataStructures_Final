@@ -20,6 +20,45 @@
     left: 0;
     overflow: hidden;
 }
+.content {
+    background-color: #e9ecef;
+    opacity: 0.6;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+}
+.content-div {
+    max-height: 300px;
+}
+.display-div {
+    overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}
+.sidebar ul{
+    list-style-type: none;
+}
+@media only screen and (min-width: 770px) {
+    .sidebar {
+        border-right: 1px solid gray;
+    }
+    .content {
+        height: 300px;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .sidebar {
+        min-width: 250px;
+    }
+    .content-div{
+        max-height: 200px;
+    }
+}
+
+.hidden{
+    display: none;
+}
 
 .center {
     display: block;
