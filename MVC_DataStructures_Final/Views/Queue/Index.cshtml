@@ -32,7 +32,7 @@
 
     <div class="overlay"></div>
 
-    <div class="container">
+    <div class="container py-3">
         <div class="jumbotron">
             <h2>My Queue</h2>
             <p>
@@ -40,53 +40,51 @@
                 The queue will then be displayed below
             </p>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-6">
-            <ul>
-                <li>
-                    <a href="@Url.Action("AddOne", "Queue")" class="w3-bar-item w3-button">Add One</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("AddHuge", "Queue")" class="w3-bar-item w3-button">Add Huge List</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Display", "Queue")" class="w3-bar-item w3-button">Display Queue</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Delete", "Queue")" class="w3-bar-item w3-button">Delete from Queue</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Clear", "Queue")" class="w3-bar-item w3-button">Clear Queue</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Search", "Queue")" class="w3-bar-item w3-button">Search Queue</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("ReturnHome", "Queue")" class="w3-bar-item w3-button">Return to Main Menu</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="container">
-        <div class="col col-md-6">
-            @if (ViewBag.MyQueue == null)
-            {
+        <div class="container">
+            <div class="row content py-3">
+                <div class="col-sm-3 content-div sidebar mr-5">
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("AddOne", "Queue")">Add One</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("AddHuge", "Queue")">Add Huge List</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Display", "Queue")">Display Queue</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Delete", "Queue")">Delete from Queue</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Clear", "Queue")">Clear Queue</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Search", "Queue")">Search Queue</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ReturnHome", "Queue")">Return to Main Menu</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-8 content-div display-div">
+                    @if (ViewBag.MyQueue == null)
+                    {
 
-            }
-            else
-            {
-                foreach (var qData in ViewBag.MyQueue)
-                {
-                    <p>@qData</p>
-                }
-            }
-        </div>
+                    }
+                    else
+                    {
+                        foreach (var qData in ViewBag.MyQueue)
+                        {
+                            <p>@qData</p>
+                        }
+                    }
 
-        <div class="col-md-6">
-            <p>@ViewBag.Clear</p>
-            <p>@ViewBag.Search</p>
-            <p>@ViewBag.Time</p>
+                    <p>@ViewBag.Clear</p>
+                    <p>@ViewBag.Search</p>
+                    <p>@ViewBag.Time</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
